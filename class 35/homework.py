@@ -1,0 +1,41 @@
+import cv2
+import numpy as np
+
+tigerimage = cv2.imread("class 35\\tiger.jpg")
+cv2.imshow("tiger", tigerimage)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+resizeimg = cv2.resize(tigerimage, (500, 500))
+cv2.imshow("resized image", resizeimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+borderimg = cv2.copyMakeBorder(resizeimg, 20, 20, 20, 20, borderType=cv2.BORDER_CONSTANT, value=(255, 0, 0))
+
+cv2.imshow("bordered image", borderimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+greyimg = cv2.cvtColor(resizeimg, cv2.COLOR_BGR2GRAY)
+cv2.imshow("grey image", greyimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+hsvimg = cv2.cvtColor(resizeimg, cv2.COLOR_BGR2HSV)
+cv2.imshow("hsv image", hsvimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+b, g, r = cv2.split(resizeimg)
+zeroarray = np.zeros_like(b)
+blueimg = cv2.merge([b, zeroarray, zeroarray])
+cv2.imshow("blue image", blueimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+redimg=cv2.merge([zeroarray,zeroarray,r])
+cv2.imshow("red image", redimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+greenimg=cv2.merge([zeroarray,g,zeroarray])
+cv2.imshow("green image", greenimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
