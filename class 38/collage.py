@@ -32,7 +32,7 @@ for i in os.listdir("."):
     images.append(i)
 
 print(images)
-video=cv2.VideoWriter(videoname,0,2,(averagewidth,averageheight))
+video=cv2.VideoWriter(videoname,0,1,(averagewidth,averageheight))
 
 for i in images:
     video.write(cv2.imread(os.path.join(".",i)))
